@@ -6,18 +6,18 @@ services:
     container_name: mysql-db
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: rootpass
-      MYSQL_DATABASE: myapp
+      MYSQL_ROOT_PASSWORD: sat
+      MYSQL_DATABASE: cloud
     ports:
       - "3306:3306"
     volumes:
       - mysql-data:/var/lib/mysql
     networks:
-      - app-network
+      - satyam 
 
   nodeapp:
     build: .
-    container_name: node-app
+    container_name:  backend-net
     restart: always
     ports:
       - "3000:3000"
@@ -26,7 +26,7 @@ services:
     env_file:
       - .env
     networks:
-      - app-network
+      - satyam 
 
 networks:
   app-network:
